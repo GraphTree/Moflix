@@ -5,6 +5,7 @@ import {motion, useAnimation, useScroll} from 'framer-motion'
 import {useMatch} from 'react-router-dom'
 
 
+
 const Nav = styled(motion.nav)`
   display: flex;
   justify-content: space-between;
@@ -16,6 +17,10 @@ const Nav = styled(motion.nav)`
   padding: 20px 60px;
   color: white;
 `;
+
+const LinkTo = styled(Link)`
+  text-decoration: none;
+  color: white;`
 
 const Col = styled.div`
   display: flex;
@@ -56,6 +61,7 @@ const Search = styled.span`
   display: flex;
   align-items: center;
   position: relative;
+  
   svg {
     height: 25px;
   }
@@ -76,7 +82,7 @@ const Circle = styled(motion.span)`
 const Input = styled(motion.input)`
   transform-origin: right center;
   position: absolute;
-  right: 0px;
+  right: 100px;
   padding: 5px 10px;
   padding-left: 40px;
   z-index: -1;
@@ -151,15 +157,15 @@ function Header(){
             </Logo>
             <Items>
                 <Item>
-                    <Link to='/'>
+                    <LinkTo to='/'>
                         Home {homeMatch ? <Circle layoutId="circle"/> : null}
-                    </Link>
+                    </LinkTo>
                 </Item>
                 
                 <Item>
-                    <Link to='/tv'>
+                    <LinkTo to='/tv'>
                         Tv Shows {tvMatch ? <Circle layoutId="circle" /> : null}
-                    </Link>
+                    </LinkTo>
                 </Item>
             </Items>
         </Col>
